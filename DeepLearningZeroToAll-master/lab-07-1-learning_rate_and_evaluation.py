@@ -10,6 +10,7 @@ x_data = [[1, 2, 1],
           [1, 2, 5],
           [1, 6, 6],
           [1, 7, 7]]
+          
 y_data = [[0, 0, 1],
           [0, 0, 1],
           [0, 0, 1],
@@ -23,6 +24,7 @@ y_data = [[0, 0, 1],
 x_test = [[2, 1, 1],
           [3, 1, 2],
           [3, 3, 4]]
+
 y_test = [[0, 0, 1],
           [0, 0, 1],
           [0, 0, 1]]
@@ -34,6 +36,14 @@ W = tf.Variable(tf.random_normal([3, 3]))
 b = tf.Variable(tf.random_normal([3]))
 
 # tf.nn.softmax computes softmax activations
+# SOFTMAX는 입력이 3개 이상일때 다중 분류 문제에서 사용하는 함수
+# 출력의 총합이 1이 되도록 해준다. 
+
+
+#    weight  -  softmax -  cross entropy  
+# 입력  -> 가중합 -> hypothesis -> 출력(one_hot label)
+
+
 # softmax = exp(logits) / reduce_sum(exp(logits), dim)
 hypothesis = tf.nn.softmax(tf.matmul(X, W) + b)
 
